@@ -1,0 +1,77 @@
+Task 1 - Micro-Service Skeleton Challenge
+Define Requirements
+Service: Task Manager API
+Entities: User, Task
+Endpoints:
+
+User: Authentication (register, login)
+
+Task: CRUD operations (create, read, update, delete tasks)
+Database: PostgreSQL
+Authentication: JWT-based
+Testing: Unit tests included
+
+1. Craft Architecture Prompt
+
+Create a complete Task Manager microservice with:
+
+Architecture:
+
+RESTful API with proper HTTP methods
+Mysql database layer
+Service layer for encapsulating business logic
+Controller layer for request/response handling
+JWT authentication for securing endpoints
+Global error handling middleware
+Input validation using annotations
+Logging system (e.g., using SLF4J + Logback)
+
+Technology:
+
+Spring Boot
+Spring Security
+Spring Data JPA
+MySql
+JWT
+JUnit + Mockito for testing
+
+Include:
+
+Project structure (organized in controller, service, repository, model, config packages)
+Dependencies and pom.xml setup
+PostgreSQL-compatible database schema for User and Task entities
+
+All endpoint implementations:
+POST /auth/register
+POST /auth/login
+GET /tasks, POST /tasks, PUT /tasks/{id}, DELETE /tasks/{id}
+
+JWT-based authentication setup 
+Global exception handling using @ControllerAdvice
+Input validation using @Valid and DTO classes
+Basic unit tests for services and controllers using JUnit + Mockito
+
+README with build and run instructions, environment setup (e.g., .env, application.properties)"
+
+2. Generate and Review
+
+Generate the initial Spring Boot project structure.
+Add all necessary dependencies to pom.xml.
+User and Task models and map to MySQL tables using JPA.
+Implement controller, service, repository layers.
+Add JWT-based authentication setup.
+Write global exception handling and basic input validation.
+Write unit tests using JUnit and Mockito.
+Ensure the project compiles and endpoints function.
+
+3. Document Results
+What worked well: Spring Boot layers were clearly separated; authentication and CRUD for Task are integrated and secure.
+Issues/Gaps: Optional: Task ownership linking via user IDs could be made stricter; expand role-based auth if needed.
+
+
+Success Criteria:
+Complete project structure
+User authentication and task CRUD implemented
+MySQL integration working
+JWT authentication active and verified
+Unit tests included

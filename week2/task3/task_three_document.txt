@@ -1,0 +1,63 @@
+Analysis Prompt 
+Analyze this legacy code and identify modernization opportunities:
+UserController, UserService, UserRepository
+Please identify:
+1. Code smells and anti-patterns
+2. Security vulnerabilities
+3. Performance issues
+4. Maintainability problems
+5. Missing error handling
+6. Outdated language features
+
+Modernize this legacy code following current best practices
+Modernization Requirements:
+- Use modern {LANGUAGE} features
+- Implement proper error handling
+- Add input validation
+- Improve readability and maintainability
+- Add comprehensive documentation
+- Include unit tests
+- Follow SOLID principles
+- Address security concerns
+Provide:
+1. Refactored code
+2. Explanation of changes made
+3. Migration strategy
+4. Testing approach
+
+Before/After Comparison
+Code Quality:
+Reduced boilerplate code
+Type safety
+Better error handling
+Standardized patterns
+
+Maintainability:
+Clear architecture
+Separation of concerns
+Consistent patterns
+Better documentation
+
+Performance:
+Optimized database operations
+Connection pooling
+Caching support
+Async operations
+
+Testing:
+Easy unit testing
+Integration testing support
+Mocking capabilities
+Test context management
+
+Security:
+Built-in security features
+Input validation
+Password encryption
+CSRF protection
+
+Scalability:
+Microservices ready
+Cloud-native support
+Containerization support
+Easy deployment

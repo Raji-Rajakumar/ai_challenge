@@ -1,0 +1,86 @@
+Convert this Java calculator to Python:
+
+[PASTE JAVA CODE]
+
+Translation Requirements:
+1. Maintain exact business logic:
+   - Keep all arithmetic operations (add, subtract, multiply, divide)
+   - Preserve input validation and error handling
+   - Maintain the interactive menu system
+   - Keep the division by zero check
+
+2. Use idiomatic Python patterns:
+   - Replace Java's Scanner with Python's input()
+   - Use Python's f-strings instead of printf
+   - Implement Python-style exception handling
+   - Use Python's built-in functions where applicable
+
+3. Follow Python naming conventions:
+   - Use snake_case for function and variable names
+   - Use descriptive names that follow PEP 8
+   - Keep class names in PascalCase if creating a class
+
+4. Use appropriate Python data structures:
+   - Replace Java's String with Python's str
+   - Use Python's float for decimal numbers
+   - Implement Python-style input handling
+
+5. Implement proper error handling:
+   - Use try-except blocks for input validation
+   - Handle division by zero appropriately
+   - Implement graceful program termination
+
+6. Add appropriate documentation:
+   - Include docstrings for functions
+   - Add type hints using Python's typing module
+   - Include inline comments for complex logic
+
+7. Include type annotations:
+   - Add return type hints
+   - Specify parameter types
+   - Use Optional types where appropriate
+
+8. Optimize for Python:
+   - Use list comprehensions where applicable
+   - Implement generator expressions if needed
+   - Follow Python's performance best practices
+
+Provide:
+- Converted Python code
+- Explanation of Python-specific adaptations
+- Unit tests using pytest
+- Performance considerations
+
+Verification Checklist:
+1. Logic equivalence check:
+   - All arithmetic operations work correctly
+   - Input validation matches Java version
+   - Error handling is equivalent
+   - Program flow is maintained
+
+2. Language idiom appropriateness:
+   - Code follows PEP 8 guidelines
+   - Uses Python-specific features appropriately
+   - Maintains readability and maintainability
+
+3. Performance characteristics:
+   - Input/output handling efficiency
+   - Memory usage optimization
+   - Execution speed considerations
+
+Documentation:
+1. Translation challenges:
+   - Input handling differences
+   - Type system adaptations
+   - Error handling approach changes
+
+2. Language-specific optimizations:
+   - Python-specific performance improvements
+   - Memory usage optimizations
+   - Code structure improvements
+
+3. Potential issues to watch for:
+   - Input validation edge cases
+   - Type conversion handling
+   - Exception handling differences
+ 

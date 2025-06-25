@@ -1,0 +1,88 @@
+.notification-center {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 300px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.notification-center h3 {
+    padding: 15px;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    color: #333;
+}
+
+.notification-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.notification-item:hover {
+    background-color: #f8f9fa;
+}
+
+.notification-item.task_assigned {
+    border-left: 4px solid #007bff;
+}
+
+.notification-item.status_changed {
+    border-left: 4px solid #28a745;
+}
+
+.notification-item.deadline_approaching {
+    border-left: 4px solid #ffc107;
+}
+
+.notification-item.comment_added {
+    border-left: 4px solid #17a2b8;
+}
+
+.notification-message {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.notification-time {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Toast customization */
+.Toastify__toast-container {
+    margin-top: 60px !important;
+}
+
+.Toastify__toast {
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.Toastify__toast--info {
+    background: #007bff;
+}
+
+.Toastify__toast--success {
+    background: #28a745;
+}
+
+.Toastify__toast--warning {
+    background: #ffc107;
+    color: #333;
+}
+
+.Toastify__toast--error {
+    background: #dc3545;
+} 

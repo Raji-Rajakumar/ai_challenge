@@ -1,0 +1,150 @@
+Analyze this feature requirement for implementation
+Feature: Real-time user notifications for task-related events (creation, update, deletion) with a collapsible UI panel, badge count for unread notifications, and options to mark individual or all notifications as read.
+Existing Codebase Context: @codebase
+Integration Points: @files task_manager/frontend/src/components/NotificationPanel.js, task_manager/frontend/src/services/notificationService.js, task_manager/backend/src/main/java/com/taskmanager/controller/NotificationController.java, task_manager/backend/src/main/java/com/taskmanager/service/NotificationService.java, task_manager/backend/src/main/java/com/taskmanager/event/TaskNotificationListener.java, task_manager/backend/src/main/java/com/taskmanager/service/TaskServiceImpl.java, task_manager/backend/src/main/java/com/taskmanager/dto/TaskDTO.java, task_manager/frontend/src/components/Navigation.js
+
+Please provide:
+1. Implementation approach
+2. Files that need modification
+3. New files to create
+4. Database changes required
+5. API contract changes
+6. Testing strategy
+7. Potential risks and mitigation
+8. Estimated effort breakdown"
+
+Code Generation (30 min):
+For Each Component (Generate separately):
+
+"Implement Frontend UI Component (NotificationPanel) for the Notification Feature:
+Context: @codebase
+Integration: @files task_manager/frontend/src/components/Navigation.js
+Requirements:
+- Display a notification bell icon in the navigation bar with an unread count badge.
+- Implement a collapsible panel for displaying notifications.
+- Show notification details (message, type, timestamp).
+- Provide a button to mark individual notifications as read.
+- Include a "Mark all as read" button.
+- Implement smooth animations for panel visibility.
+- Use type-specific icons and styling (e.g., for TASK_CREATED, TASK_UPDATED, TASK_DELETED).
+Ensure:
+- Follows existing codebase patterns
+- Maintains consistency with @files task_manager/frontend/src/App.css (for general styling principles)
+- Proper error handling (e.g., for API calls to notification service)
+- Comprehensive logging (e.g., console errors for network issues)
+- Input validation (if any user input is involved in the UI, not directly here)
+- Unit tests included
+- Documentation added"
+
+"Implement Frontend Service (notificationService) for the Notification Feature:
+Context: @codebase
+Integration: @files task_manager/frontend/src/components/NotificationPanel.js
+Requirements:
+- Add functions to fetch user-specific notifications.
+- Add functions to mark a single notification as read.
+- Add functions to mark all notifications for a user as read.
+- Handle API calls to the backend notification endpoints.
+Ensure:
+- Follows existing codebase patterns
+- Maintains consistency with @files N/A
+- Proper error handling (e.g., try-catch for axios calls)
+- Comprehensive logging (e.g., console errors for API failures)
+- Input validation (e.g., ensuring userId and notificationId are valid)
+- Unit tests included
+- Documentation added"
+
+"Implement Backend Controller (NotificationController) for the Notification Feature:
+Context: @codebase
+Integration: @files task_manager/backend/src/main/java/com/taskmanager/service/NotificationService.java
+Requirements:
+- Create an endpoint to retrieve notifications for a specific user.
+- Create an endpoint to mark a single notification as read.
+- Create an endpoint to mark all notifications for a user as read.
+- Ensure proper authentication and authorization.
+Ensure:
+- Follows existing codebase patterns
+- Maintains consistency with @files N/A
+- Proper error handling (e.g., returning appropriate HTTP status codes)
+- Comprehensive logging (e.g., for incoming requests, errors)
+- Input validation (e.g., PathVariable userId and notificationId)
+- Unit tests included
+- Documentation added"
+
+"Implement Backend Service (NotificationService) for the Notification Feature:
+Context: @codebase
+Integration: @files task_manager/backend/src/main/java/com/taskmanager/controller/NotificationController.java, task_manager/backend/src/main/java/com/taskmanager/event/TaskNotificationListener.java
+Requirements:
+- Implement logic to retrieve notifications from the database for a user.
+- Implement logic to update a single notification's status to 'read'.
+- Implement logic to update all notifications for a user to 'read'.
+- Implement logic to create new notifications based on events.
+Ensure:
+- Follows existing codebase patterns
+- Maintains consistency with @files N/A
+- Proper error handling (e.g., SQLException handling, throwing custom exceptions)
+- Comprehensive logging
+- Input validation
+- Unit tests included
+- Documentation added"
+
+"Implement Backend Event Listener (TaskNotificationListener) for the Notification Feature:
+Context: @codebase
+Integration: @files task_manager/backend/src/main/java/com/taskmanager/service/NotificationService.java, task_manager/backend/src/main/java/com/taskmanager/event/TaskEventPublisher.java
+Requirements:
+- Listen for `TaskCreatedEvent`, `TaskUpdatedEvent`, and `TaskDeletedEvent`.
+- When an event is received, create a new `Notification` object with relevant details.
+- Use the `NotificationService` to persist the new notification.
+Ensure:
+- Follows existing codebase patterns
+- Maintains consistency with @files N/A
+- Proper error handling (e.g., graceful handling of notification creation failures)
+- Comprehensive logging (e.g., for received events)
+- Input validation
+- Unit tests included
+- Documentation added"
+
+"Implement Backend Task Service Modification (TaskServiceImpl) for the Notification Feature:
+Context: @codebase
+Integration: @files task_manager/backend/src/main/java/com/taskmanager/event/TaskEventPublisher.java
+Requirements:
+- Inject `TaskEventPublisher` into `TaskServiceImpl`.
+- After a task is successfully created, updated, or deleted, publish the corresponding `TaskCreatedEvent`, `TaskUpdatedEvent`, or `TaskDeletedEvent` using `TaskEventPublisher`.
+- Ensure the `TaskDTO` created for the event accurately reflects the task state.
+Ensure:
+- Follows existing codebase patterns
+- Maintains consistency with @files N/A
+- Proper error handling
+- Comprehensive logging
+- Input validation
+- Unit tests included
+- Documentation added"
+
+"Implement Backend DTO Modification (TaskDTO) for the Notification Feature:
+Context: @codebase
+Integration: @files task_manager/backend/src/main/java/com/taskmanager/service/TaskServiceImpl.java
+Requirements:
+- Add a constructor to `TaskDTO` that takes a `Task` entity as input.
+- Handle necessary type conversions from `Task` fields (e.g., `LocalDate` to `LocalDateTime`, enum to `String`).
+Ensure:
+- Follows existing codebase patterns
+- Maintains consistency with @files N/A
+- Proper error handling
+- Comprehensive logging
+- Input validation
+- Unit tests included
+- Documentation added"
+
+"Implement Frontend Navigation Component (Navigation.js) for the Notification Feature:
+Context: @codebase
+Integration: @files task_manager/frontend/src/components/NotificationPanel.js
+Requirements:
+- Integrate the `NotificationPanel` component into the `Navigation` bar.
+- Ensure the notification bell icon and panel are positioned correctly and do not interfere with other UI elements (e.g., logout button).
+Ensure:
+- Follows existing codebase patterns
+- Maintains consistency with @files task_manager/frontend/src/App.css (for general styling principles)
+- Proper error handling
+- Comprehensive logging
+- Input validation
+- Unit tests included
+- Documentation added"
