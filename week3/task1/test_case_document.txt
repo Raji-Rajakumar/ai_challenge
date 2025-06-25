@@ -1,0 +1,85 @@
+1. Authentication Layer
+AuthService Tests
+✅ Success Cases:
+register_Success: Tests successful user registration
+login_Success: Tests successful user login
+❌ Error Cases:
+register_EmailAlreadyExists: Tests duplicate email registration
+login_InvalidCredentials: Tests invalid login credentials
+login_UserNotFound: Tests login with non-existent user
+AuthController Tests
+✅ Success Cases:
+register_Success: Tests successful registration endpoint
+login_Success: Tests successful login endpoint
+❌ Error Cases:
+register_EmailAlreadyExists: Tests duplicate email registration
+register_InvalidEmail: Tests email validation
+register_InvalidPhoneNumber: Tests phone number validation
+login_InvalidCredentials: Tests invalid login credentials
+
+2. User Management
+UserService Tests
+✅ Success Cases:
+getUserProfile_Success: Tests successful profile retrieval
+updateUserProfile_Success: Tests successful profile update
+❌ Error Cases:
+getUserProfile_NotFound: Tests non-existent user profile
+updateUserProfile_NotFound: Tests updating non-existent profile
+UserController Tests
+✅ Success Cases:
+getUserProfile_Success: Tests successful profile endpoint
+
+3. Bus Management
+BusService Tests
+✅ Success Cases:
+createBus_Success: Tests bus creation
+getBusById_Success: Tests bus retrieval
+getAllBuses_Success: Tests listing all buses
+updateBus_Success: Tests bus update
+deleteBus_Success: Tests bus deletion
+❌ Error Cases:
+getBusById_NotFound: Tests non-existent bus retrieval
+updateBus_NotFound: Tests updating non-existent bus
+deleteBus_NotFound: Tests deleting non-existent bus
+BusController Tests
+✅ Success Cases:
+createBus_Success: Tests bus creation endpoint
+getBus_Success: Tests bus retrieval endpoint
+❌ Error Cases:
+getBus_NotFound: Tests non-existent bus endpoint
+
+4. Schedule Management
+ScheduleService Tests
+✅ Success Cases:
+createSchedule_Success: Tests schedule creation
+getScheduleById_Success: Tests schedule retrieval
+getAllSchedules_Success: Tests listing all schedules
+updateSchedule_Success: Tests schedule update
+deleteSchedule_Success: Tests schedule deletion
+❌ Error Cases:
+createSchedule_BusNotFound: Tests schedule creation with non-existent bus
+getScheduleById_NotFound: Tests non-existent schedule retrieval
+updateSchedule_NotFound: Tests updating non-existent schedule
+deleteSchedule_NotFound: Tests deleting non-existent schedule
+
+5. Booking Management
+BookingService Tests
+✅ Success Cases:
+createBooking_Success: Tests booking creation
+getBookingById_Success: Tests booking retrieval
+getAllBookings_Success: Tests listing all bookings
+getUserBookings_Success: Tests listing user's bookings
+❌ Error Cases:
+createBooking_UserNotFound: Tests booking with non-existent user
+createBooking_ScheduleNotFound: Tests booking with non-existent schedule
+getBookingById_NotFound: Tests non-existent booking retrieval
+BookingController Tests
+✅ Success Cases:
+createBooking_Success: Tests booking creation endpoint
+
+6. Security
+CustomUserDetailsService Tests
+✅ Success Cases:
+loadUserByUsername_Success: Tests successful user loading
+❌ Error Cases:
+loadUserByUsername_UserNotFound: Tests non-existent user loading

@@ -1,0 +1,86 @@
+JwtTokenProvider.java
+public String generateToken(String email) {
+    Date now = new Date();
+    Date expiryDate = new Date(now.getTime() + jwtExpirationInMs);
+
+    return Jwts.builder()
+            .setSubject(email)
+            .setIssuedAt(new Date())
+            .setExpiration(expiryDate)
+            .signWith(SignatureAlgorithm.HS512, jwtSecret)
+            .compact();
+}
+
+
+SecurityConfig.java
+http
+    .cors().and()
+    .csrf().disable()
+    .authorizeHttpRequests()
+    .requestMatchers("/api/auth/**").permitAll()
+    .anyRequest().authenticated()
+	
+	
+JwtAuthenticationFilter.java	
+private boolean validateToken(String token, UserDetails userDetails) {
+    try {
+        SecretKey key = Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
+        Claims claims = Jwts.parserBuilder()
+            .setSigningKey(key)
+            .build()
+            .parseClaimsJws(token)
+            .getBody();
+        return claims.getSubject().equals(userDetails.getUsername());
+    } catch (Exception e) {
+        return false;
+    }
+}
+
+
+
+Test coverage for the above legacy code
+Legacy Code Test Coverage Report
+1. JWT Token Provider Tests (JwtTokenProviderTest.java)
+✅ Success Cases:
+generateToken_Success: Tests token generation with valid email
+getEmailFromJWT_Success: Tests email extraction from valid token
+generateToken_ExpirationCheck: Tests token expiration time
+generateToken_DifferentEmails: Tests token uniqueness for different emails
+❌ Error Cases:
+getEmailFromJWT_InvalidToken: Tests handling of invalid tokens
+Coverage: 90%
+Token generation
+Token validation
+Email extraction
+Expiration handling
+Error handling
+
+2. JWT Authentication Filter Tests (JwtAuthenticationFilterTest.java)
+✅ Success Cases:
+doFilterInternal_ValidToken: Tests successful token validation
+doFilterInternal_NoToken: Tests request without token
+❌ Error Cases:
+doFilterInternal_InvalidToken: Tests invalid token format
+doFilterInternal_InvalidHeaderFormat: Tests malformed authorization header
+doFilterInternal_ExpiredToken: Tests expired token handling
+Coverage: 85%
+Token extraction
+Token validation
+Header parsing
+Error handling
+Security context management
+
+3. Legacy Service Tests (LegacyServiceTest.java)
+✅ Success Cases:
+register_WithFieldInjection: Tests successful registration with field injection
+register_RepositoryError_WithFieldInjection: Tests error handling in repository
+❌ Error Cases:
+register_EmailExists_WithFieldInjection: Tests duplicate email handling
+register_NullRequest_WithFieldInjection: Tests null request handling
+register_EmptyEmail_WithFieldInjection: Tests empty email validation
+Coverage: 80%
+Field injection testing
+Repository interaction
+Error handling
+Input validation
+Password encoding

@@ -1,0 +1,83 @@
+Booking Creation Edge Cases
+-Test concurrent bookings for the same schedule
+-Test booking with maximum possible seats (bus capacity)
+-Test booking with zero seats
+-Test booking with negative seats
+-Test booking with decimal seat numbers
+-Test booking for a schedule that's about to depart (within 30 minutes)
+-Test booking for a past schedule
+-Test booking with null/empty schedule ID
+-Test booking with null/empty user ID
+-Test booking with null/empty number of seats
+
+
+User-Related Edge Cases
+-Test booking with non-existent user ID
+-Test booking with deactivated user account
+-Test booking with user having multiple active bookings
+-Test booking with user having cancelled bookings
+-Test booking with user having pending payments
+-Test booking with user having exceeded booking limit
+
+Cancellation Edge Cases
+-Test cancellation of non-existent booking
+-Test cancellation of already cancelled booking
+-Test cancellation of booking after departure time
+-Test cancellation of booking within cancellation window
+-Test cancellation of booking with partial refund
+-Test cancellation of booking with full refund
+-Test concurrent cancellations of the same booking
+
+
+Test case covered for the edge cases
+
+Booking Creation Edge Cases
+Concurrent Bookings for the Same Schedule
+-Simulate multiple users booking the last available seats at the same time.
+-Assert that no more seats are booked than available.
+Booking with Maximum Possible Seats
+-Book exactly the number of available seats.
+-Assert that booking succeeds and available seats become zero.
+Booking with Zero or Negative Seats
+-Attempt to book zero or negative seats.
+-Assert that an exception is thrown.
+Booking for a Schedule About to Depart
+-Attempt to book a schedule with a departure time within the next X minutes.
+-Assert that booking is rejected.
+Booking for a Past Schedule
+-Attempt to book a schedule whose departure time is in the past.
+-Assert that booking is rejected.
+Booking with Null/Empty Schedule or User ID
+-Attempt to book with null or missing schedule/user IDs.
+-Assert that booking is rejected.
+
+User-Related Edge Cases
+Booking with Non-Existent User
+-Attempt to book with a user ID that does not exist.
+-Assert that booking is rejected.
+Booking with Deactivated User Account
+-Attempt to book with a user whose account is deactivated.
+-Assert that booking is rejected.
+Booking with User Having Multiple Active Bookings
+-Attempt to book when the user already has the maximum allowed active bookings.
+-Assert that booking is rejected.
+Booking with User Having Cancelled Bookings
+-Attempt to book when the user has previously cancelled bookings.
+-Assert that booking is allowed (unless business rules say otherwise).
+
+Cancellation Edge Cases
+Cancellation of Non-Existent Booking
+-Attempt to cancel a booking ID that does not exist.
+-Assert that cancellation is rejected.
+Cancellation of Already Cancelled Booking
+-Attempt to cancel a booking that is already cancelled.
+-Assert that cancellation is rejected.
+Cancellation After Departure Time
+-Attempt to cancel a booking after the scheduled departure time.
+-Assert that cancellation is rejected.
+Cancellation Within Allowed Window
+-Attempt to cancel a booking within the allowed cancellation window.
+-Assert that cancellation succeeds and seats are released.
+Concurrent Cancellations
+-Simulate multiple cancellation requests for the same booking.
+-Assert that only one succeeds and the rest are rejected.
